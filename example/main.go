@@ -60,8 +60,8 @@ func main() {
 	}
 
 	// We don't really care about them, but we have to set them.
-	user := "wee"
-	group := "woo"
+	user := "none"
+	group := "none"
 
 	root := trees.NewSyntheticDir("net", 0777, user, group)
 	root.Add("tcp", net9p.NewTCPDir(user, group))
