@@ -21,20 +21,14 @@ import (
 	"fmt"
 	"log"
 	"net"
-	"net/http"
 	"os"
 
+	"github.com/joushou/net9p"
 	"github.com/joushou/qptools/fileserver"
 	"github.com/joushou/qptools/fileserver/trees"
-
-	_ "net/http/pprof"
 )
 
 func main() {
-	go func() {
-		log.Println(http.ListenAndServe("localhost:6060", nil))
-	}()
-
 	// Nasty argument handling - I'm too cool to care.
 	if len(os.Args) < 2 {
 		fmt.Printf("Too few arguments\n")
@@ -70,9 +64,9 @@ func main() {
 	group := "woo"
 
 	root := trees.NewSyntheticDir("net", 0777, user, group)
-	root.Add("tcp", NewTCPDir(user, group))
-	root.Add("udp", NewUDPDir(user, group))
-	root.Add("cs", NewCSFile(user, group))
+	root.Add("tcp", net9p.NewTCPDir(user, group))
+	root.Add("udp", net9p.NewUDPDir(user, group))
+	root.Add("cs", net9p.NewCSFile(user, group))
 
 	l, err := net.Listen("tcp", addr)
 	if err != nil {
