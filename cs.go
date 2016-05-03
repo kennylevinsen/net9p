@@ -3,7 +3,6 @@ package net9p
 import (
 	"errors"
 	"fmt"
-	"log"
 	"net"
 	"strings"
 	"sync"
@@ -81,8 +80,6 @@ func (h *csHandle) WriteAt(p []byte, _ int64) (int, error) {
 		}
 		h.buf = append(h.buf, []byte(fmt.Sprintf("/net/%s/clone %s", cmd[0], a)))
 	}
-
-	log.Printf("Query:\nInput: %s\nOutput: %s\n", cmd, h.buf)
 
 	return len(p), err
 }
