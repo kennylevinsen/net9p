@@ -93,12 +93,7 @@ func (ipc *IPConn) Read(p []byte) (int, error) {
 func (ipc *IPConn) Write(p []byte) (int, error) {
 	ipc.RLock()
 	defer ipc.RUnlock()
-	ms := ipc.datafid.MessageSize() - qp.WriteOverhead
-	if ms > uint32(len(p)) {
-		ms = uint32(len(p))
-	}
-	n, err := ipc.datafid.WriteOnce(0, p[:ms])
-	return int(n), err
+	return client.WrapFid(ipc.datafid).WriteAt(p, 0)
 }
 
 func (ipc *IPConn) Close() error {
