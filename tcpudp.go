@@ -23,7 +23,7 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/joushou/qptools/fileserver/trees"
+	"github.com/kennylevinsen/qptools/fileserver/trees"
 )
 
 type TCPUDPHandler struct {

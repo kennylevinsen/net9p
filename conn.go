@@ -12,8 +12,8 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/joushou/qp"
-	"github.com/joushou/qptools/fileserver/trees"
+	"github.com/kennylevinsen/qp"
+	"github.com/kennylevinsen/qptools/fileserver/trees"
 )
 
 const (

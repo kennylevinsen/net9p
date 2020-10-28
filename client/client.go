@@ -8,8 +8,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/joushou/qp"
-	"github.com/joushou/qptools/client"
+	"github.com/kennylevinsen/qp"
+	"github.com/kennylevinsen/qptools/client"
 )
 
 var ErrNotAvailable = errors.New("not available")

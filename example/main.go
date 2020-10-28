@@ -23,9 +23,9 @@ import (
 	"net"
 	"os"
 
-	"github.com/joushou/net9p"
-	"github.com/joushou/qptools/fileserver"
-	"github.com/joushou/qptools/fileserver/trees"
+	"github.com/kennylevinsen/net9p"
+	"github.com/kennylevinsen/qptools/fileserver"
+	"github.com/kennylevinsen/qptools/fileserver/trees"
 )
 
 func main() {
